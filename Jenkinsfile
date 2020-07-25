@@ -6,9 +6,7 @@ pipeline {
         stage('connect') {
             steps {
                 echo "Hello World!"
- //def dbInvokeMethod = load "dbconnection.groovy"
-			
-	     //dbInvokeMethod.GetDBDetails()		    
+    
             }
         }
     }
