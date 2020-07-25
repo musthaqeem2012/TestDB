@@ -51,25 +51,37 @@ def dbDriver   = "org.postgresql.Driver"
 
             Class.forName("org.postgresql.Driver");
 
-        } catch (ClassNotFoundException e) {
+        } /*catch (ClassNotFoundException e) {
 
             println("Where is your PostgreSQL JDBC Driver? "
                     + "Include in your library path!");
             println(e.printStackTrace());
             return;
 
-        }
-	def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+        }*/
+	//def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
       // Creating a connection to the database
       //def sql = Sql.newInstance(sDBUrl,sDBUname, 
        //  sDBPwd, sDBDriver)  
-			
-      sql.eachRow('select * from dept') {
-         tp -> 
-         println([tp.country])
-      }  
-		
-      sql.close()
+	Statement stmt = null;
+	conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            System.out.println("Connected to the PostgreSQL server successfully.");	
+	stmt = c.createStatement();
+
+      ResultSet rs = stmt.executeQuery( "select * from dept" );
+while ( rs.next() ) {
+
+         println(rs.getString("country"));
+}
+
+
+      rs.close();
+
+      stmt.close();
+
+      conn.close();
+
+  
       	
 
    }
