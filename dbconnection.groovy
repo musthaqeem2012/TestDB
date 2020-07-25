@@ -14,7 +14,8 @@ def props = new Properties()
 //def sfilepath=workspace+ "/dbprop.properties"
 //def propertiesFile = new File(sfilepath)
 //def File propsFile = new File('dbprop.properties')
-def propertiesFile = new File("${jenkinsHome}/workspace/HND/dbprop.properties")
+	def rootDir = pwd()
+def propertiesFile = new File("${rootDir}/workspace/HND/dbprop.properties")
 String sEnvType="QA"
 String sDBURL
 String sDBUname
