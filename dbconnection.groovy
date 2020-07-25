@@ -59,16 +59,12 @@ def dbDriver   = "org.postgresql.Driver"
             return;
 
         }
-	//def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+	
       // Creating a connection to the database
        
 	Statement stmt = null;
 	
-	/*sql.eachRow('SELECT country FROM dept') { row ->
-  def first = row[0]
-	println(first)	
-	}
-	sql.close()*/
+	
 	conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
           println("Connected to the PostgreSQL server successfully.");	
 	stmt = conn.createStatement();
@@ -77,11 +73,11 @@ def dbDriver   = "org.postgresql.Driver"
 		
       ResultSet rs = stmt.executeQuery( "select country from dept" )
 		println("query executed")
-		println(rs.getRow())
-while ( rs.next() ) {
+		
+	while ( rs.next() ) {
 
-         println(rs.getString("country"));
-}
+		 println(rs.getString("country"));
+	}
 	}
 	catch(Exception e)
 	{
