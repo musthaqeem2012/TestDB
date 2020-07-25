@@ -1,6 +1,6 @@
-import java.io.File.*;
-import java.sql.*; 
-import groovy.sql.Sql;
+import java.io.File.*
+import java.sql.*
+import groovy.sql.Sql
 def GetDBDetails() {
 	
 def props = new Properties()
