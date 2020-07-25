@@ -51,14 +51,14 @@ def dbDriver   = "org.postgresql.Driver"
 
             Class.forName("org.postgresql.Driver");
 
-        } /*catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
 
             println("Where is your PostgreSQL JDBC Driver? "
                     + "Include in your library path!");
             println(e.printStackTrace());
             return;
 
-        }*/
+        }
 	//def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
       // Creating a connection to the database
       //def sql = Sql.newInstance(sDBUrl,sDBUname, 
