@@ -1,4 +1,5 @@
 import java.io.File.*
+	import java.sql.SQLException;
 import java.sql.*
 import groovy.sql.Sql
 
@@ -44,9 +45,21 @@ if (propertiesFile.exists()) {
 def dbUser     = "postgres"
 def dbPassword = "admin123"
 def dbDriver   = "org.postgresql.Driver"
-Class.forName("org.postgresql.Driver");
-def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
-	
+//Class.forName("org.postgresql.Driver");
+
+	  try {
+
+            Class.forName("org.postgresql.Driver");
+
+        } catch (ClassNotFoundException e) {
+
+            System.out.println("Where is your PostgreSQL JDBC Driver? "
+                    + "Include in your library path!");
+            e.printStackTrace();
+            return;
+
+        }
+	def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
       // Creating a connection to the database
       //def sql = Sql.newInstance(sDBUrl,sDBUname, 
        //  sDBPwd, sDBDriver)  
