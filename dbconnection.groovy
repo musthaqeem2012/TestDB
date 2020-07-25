@@ -65,7 +65,7 @@ def dbDriver   = "org.postgresql.Driver"
        //  sDBPwd, sDBDriver)  
 	Statement stmt = null;
 	conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            System.out.println("Connected to the PostgreSQL server successfully.");	
+          println("Connected to the PostgreSQL server successfully.");	
 	stmt = c.createStatement();
 
       ResultSet rs = stmt.executeQuery( "select * from dept" );
