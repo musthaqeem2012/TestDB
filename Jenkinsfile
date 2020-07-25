@@ -8,7 +8,7 @@ pipeline {
                 echo "Hello World!"
                 script{
                         def prop = "Myname"
-                        echo $prop
+                        println(prop);
                     }
             }
         }
