@@ -59,10 +59,9 @@ def dbDriver   = "org.postgresql.Driver"
             return;
 
         }
-	//def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+	def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
       // Creating a connection to the database
-      def sql = Sql.newInstance(sDBUrl,sDBUname, 
-        sDBPwd, sDBDriver)  
+       
 	Statement stmt = null;
 	
 	sql.eachRow('SELECT country FROM dept') { row ->
