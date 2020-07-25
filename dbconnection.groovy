@@ -23,7 +23,8 @@ String sDBDriver
 	
 	//def workspace = manager.build.getEnvVars()["WORKSPACE"]
 	def env = System.getenv()
-	println(env['JENKINS_HOME'])
+	println(env['WORKSPACE'])
+	println(env['JOB_NAME'])
 if (propertiesFile.exists()) {
     props.load(propertiesFile.newDataInputStream())
 	if(sEnvType=="QA")
