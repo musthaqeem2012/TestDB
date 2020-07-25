@@ -15,7 +15,7 @@ def props = new Properties()
 //def propertiesFile = new File(sfilepath)
 //def File propsFile = new File('dbprop.properties')
 	def rootDir = pwd()
-def propertiesFile = new File("${rootDir}/workspace/HND/dbprop.properties")
+def propertiesFile = new File("${rootDir}/dbprop.properties")
 String sEnvType="QA"
 String sDBURL
 String sDBUname
