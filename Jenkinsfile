@@ -1,4 +1,4 @@
-#!/usr/bin/env groovy
+
 
 pipeline {
     agent any
@@ -8,7 +8,7 @@ pipeline {
                 echo "Hello World!"
  //def dbInvokeMethod = load "dbconnection.groovy"
 			
-	    	    
+	     //dbInvokeMethod.GetDBDetails()		    
             }
         }
     }
