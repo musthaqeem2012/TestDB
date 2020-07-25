@@ -59,19 +59,19 @@ def dbDriver   = "org.postgresql.Driver"
             return;
 
         }
-	def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+	//def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
       // Creating a connection to the database
        
 	Statement stmt = null;
 	
-	sql.eachRow('SELECT country FROM dept') { row ->
+	/*sql.eachRow('SELECT country FROM dept') { row ->
   def first = row[0]
 	println(first)	
 	}
-	sql.close()
-	/*conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+	sql.close()*/
+	conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
           println("Connected to the PostgreSQL server successfully.");	
-	stmt = c.createStatement();
+	stmt = conn.createStatement();
 	try
 	{
 		
@@ -95,7 +95,7 @@ while ( rs.next() ) {
       conn.close();
 
   
-      	*/
+      	
 
    }
 return this
