@@ -9,7 +9,8 @@ pipeline {
                 script{
                         def workspace = pwd()
                         def prop = load "dbconnection.groovy"
-                        prop.GetDBDetails(${workspace})
+                        prop.GetDBDetails()
+                        //prop.GetDBDetails(${workspace})
                         println("inside load")
                     }
             }
