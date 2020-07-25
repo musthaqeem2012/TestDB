@@ -7,8 +7,9 @@ pipeline {
             steps {
                 echo "Hello World!"
                 script{
-                        def prop = "Myname"
-                        println(prop);
+                        def prop = load "dbconnection.groovy"
+                        prop.GetDBDetails()
+                        println("inside load")
                     }
             }
         }
