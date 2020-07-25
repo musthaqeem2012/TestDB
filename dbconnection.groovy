@@ -42,6 +42,8 @@ else
  sDBDriver=props.getProperty('db.DevDBDriver')  
 }
 	println("Im inside groovy")
+	println(sDBURL)
+	println(sDBUname)
 	/*
       // Creating a connection to the database
       def sql = Sql.newInstance(sDBUrl,sDBUname, 
