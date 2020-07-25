@@ -6,14 +6,15 @@ import jenkins.model.Jenkins
 
 
 
-def GetDBDetails() {
+//def GetDBDetails(String workspace) {
+def GetDBDetails(){
 	/* JENKINS_HOME environment variable is not reliable */
 def jenkinsHome = Jenkins.instance.getRootDir().absolutePath
 def props = new Properties()
-
-def propertiesFile = new File("${jenkinsHome}/dbprop.properties")
+//def sfilepath=workspace+ "/dbprop.properties"
+//def propertiesFile = new File(sfilepath)
 //def File propsFile = new File('dbprop.properties')
-
+def propertiesFile = new File("${jenkinsHome}/workspace/HND/dbprop.properties")
 //if (propertiesFile.exists()) {
     props.load(propertiesFile.newDataInputStream())
 	
