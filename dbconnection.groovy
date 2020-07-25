@@ -44,7 +44,7 @@ if (propertiesFile.exists()) {
 def dbUser     = "postgres"
 def dbPassword = "admin123"
 def dbDriver   = "org.postgresql.Driver"
-
+Class.forName("org.postgresql.Driver");
 def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
 	
       // Creating a connection to the database
