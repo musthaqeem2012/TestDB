@@ -36,7 +36,7 @@ if(sEnvType=="QA")
  sDBDriver=props.getProperty('db.QADBDriver') 
 }
 else
-
+{
 	println("DevENV")
  sDBURL=props.getProperty('db.DevDBURL')
  sDBUname=props.getProperty('db.DevDBUname')
