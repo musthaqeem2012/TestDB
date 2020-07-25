@@ -25,6 +25,7 @@ String sDBDriver
 	def env = System.getenv()
 	println(env['WORKSPACE'])
 	println(env['JOB_BASE_NAME'])
+	println(pwd())
 if (propertiesFile.exists()) {
     props.load(propertiesFile.newDataInputStream())
 	if(sEnvType=="QA")
