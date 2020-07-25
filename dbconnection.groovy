@@ -15,7 +15,8 @@ def propertiesFile = new File("${jenkinsHome}/dbprop.properties")
 //def File propsFile = new File('dbprop.properties')
 
 if (propertiesFile.exists()) {
-    props.load(propsFile.newDataInputStream())
+    props.load(propertiesFile.newDataInputStream())
+	
 	println("File Loaded")
 }
 	
