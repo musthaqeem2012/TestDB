@@ -1,12 +1,25 @@
+#!/usr/bin/env groovy
 pipeline {
- agent {
- label ' '
- }
- stages {
- stage(‘Build’) {
- steps{
- sh ‘mvn install’
- }
- }
- }
+   
+
+
+    agent any
+
+    stages {
+ 
+	    stage('ConnectDB') {
+		steps {
+			//script {
+				echo "inside load"
+	    // def dbInvokeMethod = load 'dbconnection.groovy'
+			
+	   //  dbInvokeMethod.GetDBDetails()
+				echo "Hi"
+			//}
+		}
+	    }
+	    
+		
+    }
 }
+
