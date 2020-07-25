@@ -61,14 +61,21 @@ def dbDriver   = "org.postgresql.Driver"
         }
 	//def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
       // Creating a connection to the database
-      //def sql = Sql.newInstance(sDBUrl,sDBUname, 
-       //  sDBPwd, sDBDriver)  
+      def sql = Sql.newInstance(sDBUrl,sDBUname, 
+        sDBPwd, sDBDriver)  
 	Statement stmt = null;
-	conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+	
+	sql.eachRow('SELECT country FROM dept') { row ->
+  def first = row[0]
+	println(first)	
+	}
+	sql.close()
+	/*conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
           println("Connected to the PostgreSQL server successfully.");	
 	stmt = c.createStatement();
 	try
 	{
+		
       ResultSet rs = stmt.executeQuery( "select country from dept" )
 		println("query executed")
 		println(rs.getRow())
@@ -89,7 +96,7 @@ while ( rs.next() ) {
       conn.close();
 
   
-      	
+      	*/
 
    }
 return this
