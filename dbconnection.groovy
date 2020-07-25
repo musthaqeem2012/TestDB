@@ -29,13 +29,15 @@ String sDBPwd
 String sDBDriver
 if(sEnvType=="QA")
 {
+	println("QAENV")
  sDBURL=props.getProperty('db.QADBURL')
  sDBUname=props.getProperty('db.QADBUname')
  sDBPwd=props.getProperty('db.QADBPwd')
  sDBDriver=props.getProperty('db.QADBDriver') 
 }
 else
-{
+
+	println("DevENV")
  sDBURL=props.getProperty('db.DevDBURL')
  sDBUname=props.getProperty('db.DevDBUname')
  sDBPwd=props.getProperty('db.DevDBPwd')
