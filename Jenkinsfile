@@ -1,25 +1,16 @@
 #!/usr/bin/env groovy
+
 pipeline {
-   
-
-
     agent any
-
     stages {
- 
-	    stage('ConnectDB') {
-		steps {
-			script {
-				echo "inside load"
-	     //def dbInvokeMethod = load "dbconnection.groovy"
+        stage('connect') {
+            steps {
+                echo "Hello World!"
+ //def dbInvokeMethod = load "dbconnection.groovy"
 			
-	     //dbInvokeMethod.GetDBDetails()
-				//echo "Hi"
-			}
-		}
-	    }
-	    
-		
+	     //dbInvokeMethod.GetDBDetails()		    
+            }
+        }
     }
 }
 
