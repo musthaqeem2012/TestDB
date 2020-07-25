@@ -14,7 +14,7 @@ pipeline {
 	     def dbInvokeMethod = load 'dbconnection.groovy'
 			
 	     dbInvokeMethod.GetDBDetails()
-				echo "Hi"
+				//echo "Hi"
 			}
 		}
 	    }
