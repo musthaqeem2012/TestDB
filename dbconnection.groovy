@@ -3,7 +3,7 @@ import java.sql.*;
 import groovy.sql.Sql;
 def GetDBDetails() {
 	echo "inside echo"
-	println("inside me")
+	//println("inside me")
 
    }
 return this
