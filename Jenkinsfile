@@ -1,11 +1,12 @@
-
 pipeline {
-   
-    stages {
-        stage('build') {
-            steps {
-                sh 'mvn --version'
-            }
-        }
-    }
+ agent {
+ label ‘’
+ }
+ stages {
+ stage(‘Build’) {
+ steps{
+ sh ‘mvn install’
+ }
+ }
+ }
 }
