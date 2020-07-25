@@ -39,18 +39,25 @@ if (propertiesFile.exists()) {
 }
 	println(sDBURL)
 	println(sDBUname)
-	/*
+	
+	def dbUrl      = "jdbc:postgresql://localhost:5432/test"
+def dbUser     = "postgres"
+def dbPassword = "admin123"
+def dbDriver   = "org.postgresql.Driver"
+
+def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+	
       // Creating a connection to the database
-      def sql = Sql.newInstance(sDBUrl,sDBUname, 
-         sDBPwd, sDBDriver)  
+      //def sql = Sql.newInstance(sDBUrl,sDBUname, 
+       //  sDBPwd, sDBDriver)  
 			
-      sql.eachRow('select * from employee') {
+      sql.eachRow('select * from dept') {
          tp -> 
-         println([tp.FIRST_NAME,tp.LAST_NAME,tp.age,tp.sex,tp.INCOME])
+         println([tp.country])
       }  
 		
       sql.close()
-      */	
+      	
 
    }
 return this
