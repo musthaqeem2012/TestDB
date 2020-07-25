@@ -78,13 +78,14 @@ def dbDriver   = "org.postgresql.Driver"
 
 		 println(rs.getString("country"));
 	}
+		 rs.close();
 	}
 	catch(Exception e)
 	{
 		println("Exception")
 	}
 
-      rs.close();
+     
 
       stmt.close();
 
