@@ -5,16 +5,11 @@ import groovy.sql.Sql
 import jenkins.model.Jenkins
 
 
-
-//def GetDBDetails(String workspace) {
 def GetDBDetails(){
 	/* JENKINS_HOME environment variable is not reliable */
-def jenkinsHome = Jenkins.instance.getRootDir().absolutePath
+//def jenkinsHome = Jenkins.instance.getRootDir().absolutePath
 def props = new Properties()
-//def sfilepath=workspace+ "/dbprop.properties"
-//def propertiesFile = new File(sfilepath)
-//def File propsFile = new File('dbprop.properties')
-	def rootDir = pwd()
+def rootDir = pwd()
 def propertiesFile = new File("${rootDir}/dbprop.properties")
 String sEnvType="QA"
 String sDBURL
@@ -22,11 +17,7 @@ String sDBUname
 String sDBPwd
 String sDBDriver	
 	
-	//def workspace = manager.build.getEnvVars()["WORKSPACE"]
-	def env = System.getenv()
-	println(env['WORKSPACE'])
-	println(env['JOB_BASE_NAME'])
-	println(pwd())
+	
 if (propertiesFile.exists()) {
     props.load(propertiesFile.newDataInputStream())
 	if(sEnvType=="QA")
@@ -46,13 +37,6 @@ if (propertiesFile.exists()) {
 	 sDBDriver=props.getProperty('db.DevDBDriver')  
 	}
 }
-	
-	
-	
-
-
-
-	
 	println(sDBURL)
 	println(sDBUname)
 	/*
