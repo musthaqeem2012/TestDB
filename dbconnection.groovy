@@ -1,12 +1,27 @@
 import java.io.File.*
 import java.sql.*
 import groovy.sql.Sql
+
+import jenkins.model.Jenkins
+
+
+
 def GetDBDetails() {
-	
+	/* JENKINS_HOME environment variable is not reliable */
+def jenkinsHome = Jenkins.instance.getRootDir().absolutePath
 def props = new Properties()
 
-File propsFile = new File('dbprop.properties')
-props.load(propsFile.newDataInputStream())
+def propertiesFile = new File("${jenkinsHome}/dbprop.properties")
+//def File propsFile = new File('dbprop.properties')
+
+if (propertiesFile.exists()) {
+    props.load(propsFile.newDataInputStream())
+	println("File Loaded")
+}
+	
+	
+	
+
 String sEnvType="QA"
 String sDBURL
 String sDBUname
