@@ -15,37 +15,40 @@ def props = new Properties()
 //def propertiesFile = new File(sfilepath)
 //def File propsFile = new File('dbprop.properties')
 def propertiesFile = new File("${jenkinsHome}/workspace/HND/dbprop.properties")
-//if (propertiesFile.exists()) {
-    props.load(propertiesFile.newDataInputStream())
-	
-	println("File Loaded")
-//}
-	
-	
-	
-
 String sEnvType="QA"
 String sDBURL
 String sDBUname
 String sDBPwd
-String sDBDriver
-if(sEnvType=="QA")
-{
-	println("QAENV")
- sDBURL=props.getProperty('db.QADBURL')
- sDBUname=props.getProperty('db.QADBUname')
- sDBPwd=props.getProperty('db.QADBPwd')
- sDBDriver=props.getProperty('db.QADBDriver') 
+String sDBDriver	
+	
+	def workspace = manager.build.getEnvVars()["WORKSPACE"]
+	println(workspace)
+if (propertiesFile.exists()) {
+    props.load(propertiesFile.newDataInputStream())
+	if(sEnvType=="QA")
+	{
+		println("QAENV")
+	 sDBURL=props.getProperty('db.QADBURL')
+	 sDBUname=props.getProperty('db.QADBUname')
+	 sDBPwd=props.getProperty('db.QADBPwd')
+	 sDBDriver=props.getProperty('db.QADBDriver') 
+	}
+	else
+	{
+		println("DevENV")
+	 sDBURL=props.getProperty('db.DevDBURL')
+	 sDBUname=props.getProperty('db.DevDBUname')
+	 sDBPwd=props.getProperty('db.DevDBPwd')
+	 sDBDriver=props.getProperty('db.DevDBDriver')  
+	}
 }
-else
-{
-	println("DevENV")
- sDBURL=props.getProperty('db.DevDBURL')
- sDBUname=props.getProperty('db.DevDBUname')
- sDBPwd=props.getProperty('db.DevDBPwd')
- sDBDriver=props.getProperty('db.DevDBDriver')  
-}
-	println("Im inside groovy")
+	
+	
+	
+
+
+
+	
 	println(sDBURL)
 	println(sDBUname)
 	/*
