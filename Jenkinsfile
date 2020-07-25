@@ -13,7 +13,7 @@ pipeline {
 				echo "inside load"
 	     def dbInvokeMethod = load 'dbconnection.groovy'
 			
-	     dbInvokeMethod.GetDBDetails()
+	    // dbInvokeMethod.GetDBDetails()
 				//echo "Hi"
 			}
 		}
