@@ -1,30 +1,31 @@
 
-#!/usr/bin/env groovy
 pipeline {
-    environment {
-    ENV_NAME = "${env.ENV_NAME}"
-}
-
- parameters {
-    //string(defaultValue: "TEST", description: 'What environment?', name: 'userFlag')
-    choice(choices: ['DEV', 'STAGING', 'PRODUCTION'], description: 'Select field for target environment', name: 'DEPLOY_ENV')
+    agent {
+        docker {
+            image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2'
+        }
     }
-    agent any
-	
     stages {
-	    
-       /*stage('Scm') {
+        stage('Build') {
             steps {
-                echo 'Building..'
-		
-				
-                sh 'mvn --version'
-                 git 'https://github.com/musthaqeem2012/simple-app.git'
-                 
+                sh 'mvn -B -DskipTests clean package'
             }
-        }*/
-       
-		
-	
-    
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+        stage('Deliver') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
+            }
+        }
+    }
 }
