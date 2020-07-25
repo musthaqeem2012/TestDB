@@ -67,13 +67,20 @@ def dbDriver   = "org.postgresql.Driver"
 	conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
           println("Connected to the PostgreSQL server successfully.");	
 	stmt = c.createStatement();
-
-      ResultSet rs = stmt.executeQuery( "select * from dept" );
+	try
+	{
+      ResultSet rs = stmt.executeQuery( "select country from dept" )
+		println("query executed")
+		println(rs.getRow())
 while ( rs.next() ) {
 
          println(rs.getString("country"));
 }
-
+	}
+	catch(Exception e)
+	{
+		println("Exception")
+	}
 
       rs.close();
 
